@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import { useState } from 'react';
+import Example from './Component/Example/Example';
 function App() {
+  const redColor={
+    color:'red'
+  }
+
+  const blueColor={
+    color:'blue'
+  }
+  const [change,setChange]=useState(redColor)
+
+  const handleLike= ()=>{
+   let finalColor= change.color===redColor.color? blueColor: redColor
+   setChange(finalColor)
+
+  }
+  
+  const[likecolor,setColor]=useState("")
+  const addlike= ()=>{
+    const color=likecolor ? "" : "primary"
+    setColor(color)
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ThumbUpIcon onClick={handleLike}  style={change}></ThumbUpIcon>
+      <br/>
+      <ThumbUpIcon onClick={ addlike} color={likecolor}></ThumbUpIcon>
+
+
+
+     </div>
   );
 }
 
