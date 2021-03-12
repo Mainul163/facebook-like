@@ -2,7 +2,7 @@
 import './App.css';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import { useState } from 'react';
-import Example from './Component/Example/Example';
+
 function App() {
   const redColor={
     color:'red'
